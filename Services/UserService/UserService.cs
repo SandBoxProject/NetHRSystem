@@ -11,7 +11,7 @@ namespace NetHRSystem.Services.UserService
             this._httpContextAccessor = httpContextAccessor;
         }
 
-        public string GetUserName()
+        public string GetUserDetail()
         {
             var result = string.Empty;
             if (this._httpContextAccessor != null) 

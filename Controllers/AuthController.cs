@@ -29,7 +29,7 @@ namespace SampleConnectiom.Controllers
             this._dataContext = dataContext;
         }
 
-        [HttpGet, Authorize]
+        [HttpGet("GetUserDetail"), Authorize]
         public ActionResult<object> GetMe()
         {
             var userName = _userService.GetUserName();
@@ -42,7 +42,7 @@ namespace SampleConnectiom.Controllers
             //return Ok(new {userName, userName2, role});
         }
 
-        [HttpPost("register")]
+        [HttpPost("Register")]
         public async Task<ActionResult<User>> Register(UserDto request)
         {
             // Check if username exists
@@ -67,7 +67,7 @@ namespace SampleConnectiom.Controllers
             return Ok(user);
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<ActionResult<string>> Login(UserDto request)
         {
             var user = await _dataContext.Users.FirstOrDefaultAsync(u => u.Username == request.UserName);
