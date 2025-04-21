@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/NetHRSystem/FileContentIndex
+/.vs/NetHRSystem/v17
+/obj/Debug/net6.0/NetHRSystem.AssemblyInfo.cs
+/obj/Debug/net6.0/NetHRSystem.AssemblyInfoInputs.cache
+/obj/Debug/net6.0/NetHRSystem.assets.cache
+/obj/Debug/net6.0/NetHRSystem.GeneratedMSBuildEditorConfig.editorconfig
