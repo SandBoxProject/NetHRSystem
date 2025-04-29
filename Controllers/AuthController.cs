@@ -43,7 +43,7 @@ namespace SampleConnectiom.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<ActionResult<User>> Register(UserDto request)
+        public async Task<ActionResult<User>> Register(RegisterDto request)
         {
             // Check if username exists
             if (await _dataContext.Users.AnyAsync(u => u.Username == request.UserName))
@@ -84,17 +84,17 @@ namespace SampleConnectiom.Controllers
             _dataContext.UserRoles.Add(userRoleAssignment);
             await _dataContext.SaveChangesAsync();
 
-            // Create a basic employee record for the user
+            // Create employee record with user-provided information
             var employee = new Employee
             {
                 Id = Guid.NewGuid(),
-                FirstName = "New",
-                LastName = "Employee",
-                Email = $"{request.UserName}@example.com",
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
                 UserId = user.Id,
                 HireDate = DateTime.Now,
-                JobTitle = "Employee",
-                DateOfBirth = new DateTime(2000, 1, 1) // Default date of birth
+                JobTitle = request.JobTitle,
+                DateOfBirth = request.DateOfBirth
             };
 
             _dataContext.Employees.Add(employee);
